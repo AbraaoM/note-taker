@@ -13,5 +13,12 @@
     "nuxt": "^3.16.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@bg-dev/nuxt-naiveui": "^2.0.0-rc.5",
+    "@iconify-json/carbon": "^1.2.8",
+    "@unocss/nuxt": "^66.1.0-beta.7",
+    "@vueuse/core": "^13.0.0",
+    "naive-ui": "^2.41.0"
   }
 }
