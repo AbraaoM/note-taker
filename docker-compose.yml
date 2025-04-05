@@ -12,4 +12,19 @@ services:
     environment:
       - NODE_ENV=development
       - NUXT_HOST=0.0.0.0
+      - NUXT_PUBLIC_API_URL=http://localhost:8000
     command: npm run dev
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: note-taker-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONPATH=/app
