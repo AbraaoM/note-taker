@@ -18,7 +18,7 @@ async def create_note():
     return 
 
 '''TODO: Update a note'''
-@router.put("/notes/{note_id}")
+@router.put("/notes")
 async def create_note(note_id: int):
     return 
 
