@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from controllers.home_controller import router as home_router
 
 app = FastAPI(title="Note Taker API")
 
@@ -12,6 +13,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-async def hello_world():
-    return {"message": "Hello from Note Taker API!"}
+# Incluindo rotas
+app.include_router(home_router)
