@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
+from controllers.home_controller import router as home_router
 
 app = FastAPI(title="Note Taker API")
 
@@ -28,6 +29,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-async def hello_world():
-    return {"message": "Hello from Note Taker API!"}
+# Incluindo rotas
+app.include_router(home_router)
