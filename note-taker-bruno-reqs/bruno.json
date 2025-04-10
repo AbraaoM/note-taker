@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "note-taker-bruno-reqs",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
