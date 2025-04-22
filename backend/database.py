@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Database connection URL from environment variable
-DATABASE_URL = getenv('DATABASE_URL', 'postgresql://user:password@localhost/notedb')
+DATABASE_URL = getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost/notes')
 
 # Create SQLAlchemy engine
 engine = create_engine(DATABASE_URL)

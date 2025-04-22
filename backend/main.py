@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import create_tables
 import os
-from controllers.home_controller import router as home_router
+from controllers.notes_controller import router as notes_router
 
 app = FastAPI(title="Note Taker API")
 
@@ -19,4 +19,4 @@ app.add_middleware(
 )
 
 # Incluindo rotas
-app.include_router(home_router)
+app.include_router(notes_router)
