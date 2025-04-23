@@ -1,9 +1,28 @@
-const save = (key: string, value: any) => {
+import { type Note } from '~/types/note';
+
+const save = (key: string, value: Note) => {
   try {
     const serializedValue = JSON.stringify(value);
     localStorage.setItem(key, serializedValue);
   } catch (error) {
     console.error(`Error saving to localStorage with key "${key}":`, error);
+  }
+}
+
+const loadAll = () => {
+  try {
+    const keys = Object.keys(localStorage);
+    const items: Record<string, any> = {};
+    keys.forEach((key) => {
+      const value = localStorage.getItem(key);
+      if (value !== null) {
+        items[key] = JSON.parse(value);
+      }
+    });
+    return items;
+  } catch (error) {
+    console.error('Error loading all from localStorage:', error);
+    return {};
   }
 }
 
@@ -37,6 +56,7 @@ const clear = () => {
 export default {
   save,
   load,
+  loadAll,
   remove,
   clear,
 }
