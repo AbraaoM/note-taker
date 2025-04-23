@@ -31,11 +31,22 @@
 </template>
 
 <script setup lang="ts">
+import localStorageService from '~/services/localStorageService';
+import { type Note } from '~/types/note';
 const noteContent = ref('')
 
 function saveNote() {
-  // TODO: Implementar salvamento da nota
   console.log('Salvando nota:', noteContent.value)
+  localStorageService.save(
+    Date.now().toPrecision(),
+    {
+      id: Date.now().toPrecision(),
+      content: noteContent.value,
+      createdAt: new Date().toISOString(),
+    } as Note
+  );
+  // Limpar o conteúdo após salvar
+  noteContent.value = '';
 }
 </script>
 

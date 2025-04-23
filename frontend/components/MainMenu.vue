@@ -19,7 +19,7 @@
       <n-drawer-content>
         <div class="flex flex-col h-full">
           <!-- Cabeçalho com perfil -->
-          <div class="mb-8">
+          <!-- <div class="mb-8">
             <div class="flex items-center gap-3 mb-2">
               <div class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center">
                 <div class="i-carbon-user text-xl text-black/70" />
@@ -29,7 +29,7 @@
                 <div class="text-xs text-black/60">usuario@email.com</div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Menu principal -->
           <div class="flex-grow">
@@ -63,6 +63,7 @@
             <div class="h-px bg-black/10" />
             <nav class="space-y-1 mt-4">
               <!-- Link para configurações -->
+              <!--
               <NuxtLink 
                 to="/settings"
                 class="flex items-center gap-3 p-3 rounded hover:bg-black/5 transition-colors text-sm text-black/80"
@@ -72,9 +73,10 @@
                 <div class="i-carbon-settings text-lg text-black/70" />
                 <span>Configurações</span>
               </NuxtLink>
+            -->
 
               <!-- Link para perfil -->
-              <NuxtLink 
+              <!--<NuxtLink 
                 to="/profile"
                 class="flex items-center gap-3 p-3 rounded hover:bg-black/5 transition-colors text-sm text-black/80"
                 active-class="bg-black/10 text-black font-medium"
@@ -83,6 +85,7 @@
                 <div class="i-carbon-user-profile text-lg text-black/70" />
                 <span>Perfil</span>
               </NuxtLink>
+              -->
             </nav>
           </div>
         </div>
