@@ -9,20 +9,21 @@ const save = (key: string, value: Note) => {
   }
 }
 
-const loadAll = () => {
+const loadAll = (): Note[] => {
   try {
     const keys = Object.keys(localStorage);
-    const items: Record<string, any> = {};
+    const items: Record<string, Note[]> = {};
     keys.forEach((key) => {
       const value = localStorage.getItem(key);
       if (value !== null) {
         items[key] = JSON.parse(value);
       }
     });
-    return items;
+    const notes = Object.values(items).flat();
+    return notes;
   } catch (error) {
     console.error('Error loading all from localStorage:', error);
-    return {};
+    return [];
   }
 }
 

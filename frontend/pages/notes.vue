@@ -20,11 +20,8 @@
           <div class="p-5">
             <!-- Cabeçalho -->
             <div class="mb-3">
-              <h3 class="font-medium text-black/90 text-lg mb-1">
-                {{ note.title || 'Nota sem título' }}
-              </h3>
               <div class="text-xs text-black/50">
-                Atualizada {{ formatRelativeTime(note.updatedAt) }}
+                Atualizada {{ formatRelativeTime(note.createdAt) }}
               </div>
             </div>
 
@@ -51,50 +48,11 @@
 </template>
 
 <script setup lang="ts">
+import localStorageService from '~/services/localStorageService';
+import type { Note } from '~/types/note'
+
 // Notas mockadas para visualização
-const notes = ref([
-  {
-    id: 1,
-    title: 'Ideias para o Projeto',
-    content: 'Implementar autenticação com Google\nAdicionar suporte a markdown\nCriar sistema de tags\nAdicionar busca em tempo real\nIntegrar com API de IA para sugestões',
-    updatedAt: '2025-03-30T22:45:00'
-  },
-  {
-    id: 2,
-    title: 'Lista de Compras',
-    content: '🥖 Pão\n🥛 Leite\n🍎 Maçãs\n🧀 Queijo\n🥚 Ovos',
-    updatedAt: '2025-03-30T20:30:00'
-  },
-  {
-    id: 3,
-    title: 'Reunião - Planejamento Q2',
-    content: '1. Revisão das metas do Q1\n2. Definição dos OKRs para Q2\n3. Distribuição de responsabilidades\n4. Próximos passos',
-    updatedAt: '2025-03-30T15:20:00'
-  },
-  {
-    id: 4,
-    content: 'Lembrar de agendar consulta médica para a próxima semana. Ligar no número (11) 9999-9999.',
-    updatedAt: '2025-03-30T12:15:00'
-  },
-  {
-    id: 5,
-    title: 'Citações Favoritas',
-    content: '"A simplicidade é o último grau de sofisticação" - Leonardo da Vinci\n\n"Menos é mais" - Ludwig Mies van der Rohe',
-    updatedAt: '2025-03-29T18:40:00'
-  },
-  {
-    id: 6,
-    title: 'Recursos de UX/UI',
-    content: '• Princípios de Design\n• Paleta de cores monocromática\n• Tipografia consistente\n• Micro-interações\n• Feedback visual\n• Animações sutis',
-    updatedAt: '2025-03-29T14:10:00'
-  },
-  {
-    id: 7,
-    title: 'Snippet: Função Auxiliar',
-    content: 'function formatDate(date) {\n  return new Date(date)\n    .toLocaleDateString("pt-BR")\n}',
-    updatedAt: '2025-03-29T10:20:00'
-  }
-])
+const notes = localStorageService.loadAll()
 
 function openNote(note: any) {
   // TODO: Implementar navegação para a nota
